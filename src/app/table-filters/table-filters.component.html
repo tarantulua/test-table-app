@@ -1,0 +1,10 @@
+<div class="table-filter-container">
+  <button class="filter-button">
+    Filters
+    <mat-icon class="filter-icon">filter_list</mat-icon>
+  </button>
+  <div class="filter-search">
+    <input placeholder="Search" [value]="name" (change)="changeFilterName($event)" />
+    <mat-icon class="search-icon">search</mat-icon>
+  </div>
+</div>

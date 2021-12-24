@@ -1,0 +1,220 @@
+.table-container {
+  height: 100%;
+  width: 100%;
+}
+
+.mat-table {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  padding: 0.5rem;
+
+  &::-webkit-scrollbar {
+    max-width: 6px;
+    max-height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #92a2b9;
+    transition: 300ms;
+    border-radius: 5px;
+
+    &:hover {
+      background: #7990b1;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #d0d7e0;
+  }
+
+  & > * {
+    min-width: 1000px;
+  }
+
+  .mat-header-row {
+    border: none;
+    background-color: transparent;
+    min-height: 48px;
+    display: flex;
+    gap: 2px;
+
+    .mat-header-cell {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.header-name {
+        justify-content: flex-start;
+      }
+
+      &.header-actions {
+        max-width: 40px;
+
+        & * {
+          display: none !important;
+        }
+      }
+
+      &.header-globalProfiling {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .mat-row {
+    height: auto;
+    min-height: unset;
+    border: none;
+    display: flex;
+    gap: 2px;
+    transition: background-color 150ms;
+
+    &:hover {
+      background-color: #f3f3f3;
+      .table-cell {
+        & .table-cell-value {
+          &.table-actions {
+            .ng-star-inserted {
+              opacity: 1 !important;
+              pointer-events: all !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .table-cell {
+    width: 100%;
+    min-height: 22px !important;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    padding: 0px;
+    position: relative;
+
+    &,
+    & * {
+      color: #304156;
+    }
+
+    &.cell-name {
+      .table-name-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #6f87cf;
+        padding: 2px;
+        color: white;
+        font-size: 13px;
+        border-radius: 50%;
+        min-width: 30px;
+        min-height: 30px;
+        margin-right: 10px;
+      }
+    }
+
+    &.cell-globalProfiling {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    &.cell-operatingMode {
+      margin-left: -15px;
+      width: calc(100% + 15px);
+      border-top-left-radius: 22px;
+      border-bottom-left-radius: 22px;
+      background-color: #58dbaf;
+    }
+
+    &.cell-actions {
+      max-width: 40px;
+    }
+
+    & .table-cell-value {
+      width: 100%;
+      min-height: 22px !important;
+      position: relative;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.table-name {
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      &.table-globalProfiling {
+        border-radius: 22px;
+        border: 1px solid #a5a5a5;
+        min-height: 22px;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      &.table-role {
+        border: 1px solid #a5a5a5;
+        border-right: 0;
+        border-radius: 22px;
+        padding-right: 10px;
+      }
+
+      &.table-competence {
+        background-color: #ffca28;
+      }
+
+      &.table-performance {
+        background-color: #58dbaf;
+      }
+
+      &.table-talentPotential {
+        background-color: #ffca28;
+      }
+
+      &.table-visionValues {
+        background-color: rgb(255, 125, 124);
+      }
+
+      &.table-attritionRisk {
+        background-color: #58dbaf;
+      }
+
+      &.table-reward {
+        background-color: rgb(235, 235, 235);
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+      }
+
+      &.table-actions {
+        .ng-star-inserted {
+          transition: opacity 150ms;
+          display: flex;
+          opacity: 0;
+          pointer-events: none;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.pagination-info {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

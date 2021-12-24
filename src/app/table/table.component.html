@@ -1,0 +1,40 @@
+<div class="table-container">
+  <mat-table
+    class="table"
+    matSort
+    (matSortChange)="sortData($event)"
+    [dataSource]="dataSource"
+    (scroll)="onTableScroll($event)"
+  >
+    <div *ngFor="let item of columnsToDisplay">
+      <ng-container matColumnDef="{{item}}">
+        <mat-header-cell
+          class="header-{{item}}"
+          mat-sort-header="{{item !== 'actions' && item}}"
+          *matHeaderCellDef
+        >
+          {{columnsTitles[item]}}</mat-header-cell
+        >
+        <mat-cell class="table-cell cell-{{item}}" *matCellDef="let member">
+          <div
+            class="table-cell-value table-{{item}}"
+            [ngStyle]="{ 'background-color': getColumnStyle(item, member[item]) }"
+          >
+            <div class="table-name-icon" *ngIf="item === 'name'">
+              {{renderColumn('nameIcon', member[item])}}
+            </div>
+            {{renderColumn(item, member[item])}}
+            <div *ngIf="item === 'actions'">
+              <mat-icon>more_vert</mat-icon>
+            </div>
+          </div>
+        </mat-cell>
+      </ng-container>
+    </div>
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+  </mat-table>
+</div>
+<div class="pagination-info">
+  {{showPaginationInfo()}}
+</div>

@@ -1,0 +1,24 @@
+<div class="table-page">
+  <div class="page-header">
+    <div class="header-actions">
+      <button class="add-button">Add team member</button>
+    </div>
+    <div class="header-filter">
+      <app-table-filters
+        [changeFilter]="changeFilter"
+        *ngIf="changeFilter"
+        [name]="filters.name"
+      ></app-table-filters>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="body-table" *ngIf="tableData">
+      <app-table
+        [filters]="filters"
+        [tableData]="tableData"
+        [handleGetMembers]="handleGetMembers"
+        [changeFilter]="changeFilter"
+      ></app-table>
+    </div>
+  </div>
+</div>
